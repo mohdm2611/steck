@@ -1,0 +1,21 @@
+.header{
+    height: 235px;
+    width: 100%;
+    background-color: rgb(90, 90, 245);
+}
+.sidebar{
+    position: absolute;
+    left: 0;
+    width: 300px;
+    height: 560px;
+    background-color: rgba(241, 238, 238, 0.644);
+}
+.sidebar ul{
+    list-style-type: none;
+    padding-top: 30px;
+    padding-left: 50px;
+}
+.sidebar ul li{
+    padding: 6px;
+    letter-spacing: 2;
+}
