@@ -1,3 +1,9 @@
+.bodybox{
+    width: 1200px;
+    margin: 0px auto;
+    background-color:  rgb(245, 245, 245);
+    height: 100%;
+}
 .header{
     height: 235px;
     width: 100%;
@@ -5,17 +11,24 @@
 }
 .sidebar{
     position: absolute;
-    left: 0;
+    left: 67px;
     width: 300px;
     height: 560px;
-    background-color: rgba(241, 238, 238, 0.644);
 }
 .sidebar ul{
     list-style-type: none;
-    padding-top: 30px;
-    padding-left: 50px;
+    padding-top: 50px;
+    padding-left: 150px;
 }
 .sidebar ul li{
     padding: 6px;
     letter-spacing: 2;
+}
+.main{
+    position: relative;
+    background-color:  rgb(245, 245, 245);
+    height: 500px;    
+    width: 500px;
+    border: 1px solid grey;
+    border-radius: 10px;
 }
