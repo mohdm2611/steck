@@ -48,45 +48,23 @@
                 <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
                 <a href="overview.html">Overview</a>
                 <a href="#">Statistics</a>
-                <a href="index.html">Devices</a>
+                <a href="index.html ">Devices</a>
                 <a href="index.html">Logout</a>
             </div>
             <div class="container main" ng-app="MyApp" ng-controller="MyController">
                 <div class="inner">
-                    <div class="headings">
-                        <h3>Devices</h3>
-                        <h6>Manage all your devices</h6>
-                    </div>
-                    <div class="devices">
-                        <table class="table borderless">
-                            <thead>
-                                <tr>
-                                    <th>Module ID</th>
-                                    <th>Mapped To</th>
-                                    <th>Type</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody ng-repeat="m in Customers">
-                                <tr>
-                                    <td>{{m.moduleid}}</td>
-                                    <td>{{m.mappedto}}</td>
-                                    <td>{{m.type}}</td>
-                                    <td>{{m.status}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="mod-contents row">
+                        <div ng-repeat="m in Customers">
+                            <div  ng-if="$index % 1 == 0" class="clearfix visible-lg">
+                                <div class="col-lg-6">
+                                    <h2>Module-{{m.id}}</h2>
+                                    <h6>{{m.moduleid}}</h6>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    <script>
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-        }
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-        }
-    </script>
     </body>
 </html>

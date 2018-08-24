@@ -7,28 +7,120 @@
 .header{
     height: 235px;
     width: 100%;
-    background-color: rgb(90, 90, 245);
+    background-color: rgb(117, 0, 252);
 }
-.sidebar{
+.header h1{
+    color: white;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.header h5{
     position: absolute;
-    left: 67px;
-    width: 300px;
+    top: 180;
+    color: white;
+    padding-left: 40px;
+}
+.sidenav {
+    width: 250px;
     height: 560px;
+    position: absolute;
+    z-index: 1;
+    left: 168;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
-.sidebar ul{
-    list-style-type: none;
-    padding-top: 50px;
-    padding-left: 150px;
+
+.sidenav a {
+    font-size: 17px;
+    padding-left: 80px;
+    padding-top: 5px;
+    text-decoration: none;
+    display: block;
+    letter-spacing: 1px;    
 }
-.sidebar ul li{
-    padding: 6px;
-    letter-spacing: 2;
+
+.sidenav a:hover {
+    color: rgb(157, 90, 233);
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.side-menu{
+    font-size:30px;
+    cursor:pointer; 
 }
 .main{
     position: relative;
-    background-color:  rgb(245, 245, 245);
+    background-color:  inherit;
     height: 500px;    
-    width: 500px;
-    border: 1px solid grey;
-    border-radius: 10px;
+    width: 800px;
+    border-radius: 9px;
+    top: -100px;
+    left: 80;
+    height: 600px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.486);
+}
+.inner{
+    height: 100%; 
+    width: 800px;   
+    overflow: scroll;
+}
+.headings{
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.inner h3{
+    transform: scale(1, .9);
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.267);
+    line-height: 18px;
+    color: grey;    
+}
+.devices{
+    padding-top: 20px;
+}
+.table{
+    width: 600px;
+    margin: 0px auto;
+}
+.table th{
+    color: rgb(157, 90, 233);
+    font-weight: 500;
+    transform: scale(1,0.9);
+}
+.borderless > thead > tr > th,
+.borderless > tbody > tr > th,
+.borderless > tfoot > tr > th,
+.borderless > thead > tr > td,
+.borderless > tbody > tr > td,
+.borderless > tfoot > tr > td {
+  border-bottom: none;
+  border-top: none;
+}
+tbody:before {
+    line-height:2em;
+    content:"_";
+    color:white;
+    display: block;
+}
+tbody tr td{
+    background-color: rgb(255, 255, 255);
+    font-size: 15px;
+    color: grey;
+}
+tbody tr:hover{
+    background-color:  rgb(157, 90, 233);
+}
+.mod-contents h2{
+    padding-left: 20px;
+    padding-top: 20px;
+    line-height: 8px;
+    color: grey;
+}
+.mod-contents h6{
+    padding-left: 22px;
+    color:  rgb(157, 90, 233);
 }

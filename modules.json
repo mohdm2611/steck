@@ -1,0 +1,53 @@
+{
+    "modules":[
+        {
+        "id":1,
+        "moduleid": "module12",
+        "mappedto": "Sewage",
+        "type": "st-ul-01",
+        "status": "active"
+        },
+        {
+            "id":2,            
+            "moduleid": "module121124",
+            "mappedto": "Garbagebin",
+            "type": "st-ul-01",
+            "status": "inactive"
+        },
+        {
+            "id":3,
+            "moduleid": "module1212",
+            "mappedto": "Home",
+            "type": "st-ul-02",
+            "status": "active"
+        },
+        {
+            "id":4,
+            "moduleid": "module12",
+            "mappedto": "Sewage",
+            "type": "st-ul-03",
+            "status": "active"
+        },
+        {
+            "id":5,
+            "moduleid": "module12",
+            "mappedto": "Sewage",
+            "type": "st-ul-01",
+            "status": "active"
+        },
+        {
+            "id":5,
+            "moduleid": "module12",
+            "mappedto": "Sewage",
+            "type": "st-ul-01",
+            "status": "active"
+        },
+        {
+            "id":5,
+            "moduleid": "module12",
+            "mappedto": "Sewage",
+            "type": "st-ul-01",
+            "status": "active"
+        }
+    ]
+}
