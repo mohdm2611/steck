@@ -22,10 +22,8 @@
                     $scope.IsVisible = true;
                     var statusvalue = $('[ng-controller="MyController"]').scope().Customers;
                     var length = Object.keys(statusvalue).length;
-                    console.log(length);
                     for (var i=0;i<=length;i++) {
                         var statuses = statusvalue[i].status;
-                        console.log(statuses);
                         i++;
                     }
                     $scope.calculateStyle = function(item){
@@ -41,7 +39,22 @@
                                 'color': 'red'
                             }
                         }
-                    }   
+                    }
+                    var i = 0;
+                    $scope.calculateHeight = function(item){
+                        console.log(item);
+                        // Some logic to define color
+                        if(true){
+                            var a= document.getElementsByClassName('wave')
+                            var b=document.getElementsByClassName('wave1')
+                            var c=document.getElementsByClassName('wave2')
+                            a[i].style.top = item;
+                            b[i].style.top = item;
+                            c[i].style.top = item;
+                            i++;
+                            console.log(i);
+                        }
+                    }      
                 });
                 });
                 //dsafasfassaf
@@ -69,13 +82,20 @@
             <div class="container main overview" ng-app="MyApp">
                 <div class="inner" ng-controller="MyController">
                     <div class="row">
-                        <div class="col-md-6 mod-contents"  ng-repeat="m in Customers">
-                            <h2>Module-{{m.id}}</h2>
+                        <div class="col-md-5 mod-contents"  ng-repeat="m in Customers">
+                            <div class="border"></div>
+                            <h2>Module - {{m.id}}</h2>
                             <h6>{{m.moduleid}}</h6>
                             <div class="text-inside">
                                 <h6>Status:&nbsp;<span class="mod-status" ng-class="calculateClass(m.status)" ng-style="calculateStyle(m.status)">{{m.status}}</span></h6>
-                                <h6>Length:&nbsp;</h6>
-                                <h6>Value:&nbsp;</h6>
+                                <h6>Length:&nbsp;{{m.length}}cms</h6>
+                                <h6>Value:&nbsp;<span ng-class="calculateHeight(m.value)" ng-style="calculateHeight(m.value)">{{m.value}}cms</span></h6>
+                            </div>
+                            <div class="container-display">
+                                <div class="wave"></div>
+                                <div class="wave1"></div>
+                                <div class="wave2"></div>
+                                <!-- <div class="wave3"></div> -->
                             </div>
                         </div>
                     </div>

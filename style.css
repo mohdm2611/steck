@@ -55,7 +55,7 @@
     position: relative;
     background-color:  inherit;
     height: 500px;    
-    width: 800px;
+    width: 900px;
     border-radius: 9px;
     top: -100px;
     left: 80;
@@ -65,7 +65,7 @@
 }
 .inner{
     height: 100%; 
-    width: 800px;   
+    width: 900px;   
     overflow: scroll;
 }
 .headings{
@@ -124,14 +124,14 @@ tbody tr:hover{
 .mod-contents h6{
     padding-left: 52px;
     color:  rgb(157, 90, 233);
+    font-weight: 600;
 }
 .text-inside{
     padding-top: 50px;
-    padding-left: 28px;
 }
 .text-inside h6{
     color: grey;
-    font-size: 15px;
+    font-size: 13px;
     letter-spacing: 1px;
    
 }
@@ -141,4 +141,57 @@ tbody tr:hover{
 .mod-status{
     text-transform: uppercase;
     font-weight: 600;
+}
+.mod-status-devices{
+    text-transform: uppercase;
+}
+.container-display{
+    height: 150px;
+    width: 150px;
+    border-left: 3px solid  rgb(157, 90, 233);
+    border-bottom: 3px solid  rgb(157, 90, 233);
+    border-right: 3px solid  rgb(157, 90, 233);
+    position: relative;
+    bottom: 70;
+    left: 210; 
+    overflow: hidden;
+}
+.wave, .wave1, .wave2, .wave3{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 200%;
+    background-image: url('wave1.jpg');
+    background-size: 50% 75px;
+    background-repeat: repeat-x;
+    transform-origin: center bottom;
+    background-color: #45C1FF;
+}
+.wave{
+    animation: waves 3s linear infinite;
+    opacity: 1;
+    z-index: 10;
+}
+.wave1{
+    animation: waves 5s linear infinite;
+    opacity: 0.8;
+    z-index: 11;
+}
+.wave2{
+    animation: waves 12s linear infinite;
+    opacity: 0.6;
+    z-index: 12;
+}
+.wave3{
+    animation: waves 5s linear infinite;
+    opacity: 0.4;
+    z-index: 13;
+}
+@keyframes waves{
+    0% {transform: translateX(0) translateZ(0) scaleY(1);}
+    0% {transform: translateX(-25%) translateZ(0) scaleY(0.5);}
+    0% {transform: translateX(-50%) translateZ(0) scaleY(1);}
 }

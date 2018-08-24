@@ -28,6 +28,20 @@
                         console.log(statuses);
                         i++;
                     }
+                    $scope.calculateStyle = function(item){
+                        var color;
+                        // Some logic to define color
+                        if(item == "active"){
+                        return {
+                            'color': '#52daaa'
+                        }
+                        }
+                        if(item == "inactive"){
+                            return {
+                                'color': 'red'
+                            }
+                        }
+                    }
                 });
                 });
         </script>
@@ -72,7 +86,7 @@
                                     <td>{{m.moduleid}}</td>
                                     <td>{{m.mappedto}}</td>
                                     <td>{{m.type}}</td>
-                                    <td>{{m.status}}</td>
+                                    <td class="mod-status-devices" ng-class="calculateClass(m.status)" ng-style="calculateStyle(m.status)">{{m.status}}</td>
                                 </tr>
                             </tbody>
                         </table>
