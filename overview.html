@@ -42,18 +42,16 @@
                     }
                     var i = 0;
                     $scope.calculateHeight = function(item){
-                        console.log(item);
+                        var backgroundcolor;
+                        var total = $scope.Customers[i].length;
                         // Some logic to define color
-                        if(true){
-                            var a= document.getElementsByClassName('wave')
-                            var b=document.getElementsByClassName('wave1')
-                            var c=document.getElementsByClassName('wave2')
-                            a[i].style.top = item;
-                            b[i].style.top = item;
-                            c[i].style.top = item;
+                            var a= document.getElementsByClassName('wave');
+                            var b=document.getElementsByClassName('wave1');
+                            var c=document.getElementsByClassName('wave2');
+                            a[i].style.top = total-item;
+                            b[i].style.top = total-item;
+                            c[i].style.top = total-item;
                             i++;
-                            console.log(i);
-                        }
                     }      
                 });
                 });
@@ -87,9 +85,9 @@
                             <h2>Module - {{m.id}}</h2>
                             <h6>{{m.moduleid}}</h6>
                             <div class="text-inside">
-                                <h6>Status:&nbsp;<span class="mod-status" ng-class="calculateClass(m.status)" ng-style="calculateStyle(m.status)">{{m.status}}</span></h6>
+                                <h6>Status:&nbsp;<span class="mod-status" ng-class="calculateClass(m.status)">{{m.status}}</span></h6>
                                 <h6>Length:&nbsp;{{m.length}}cms</h6>
-                                <h6>Value:&nbsp;<span ng-class="calculateHeight(m.value)" ng-style="calculateHeight(m.value)">{{m.value}}cms</span></h6>
+                                <h6>Value:&nbsp;<span ng-class="calculateHeight(m.value)">{{m.value}}cms</span></h6>
                             </div>
                             <div class="container-display">
                                 <div class="wave"></div>
