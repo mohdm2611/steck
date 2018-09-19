@@ -1,0 +1,114 @@
+{{!-- <h1>{{ title }}</h1>
+<p>Welcome to {{ title }}</p>
+{{# if success}}
+    <section class="success">
+        <h2>Successful Validation</h2>
+    </section>
+    {{ else }}
+        {{# if errors}}
+            <section class="errors">
+                <ul>
+                    {{# each errors}}
+                        <li>{{ this.msg }}</li>
+                    {{/each}}
+                </ul>
+            </section>
+        {{/if}}
+        <form action="/submit" method="POST">
+            <div class="input">
+                <label for="email">E-Mail</label>
+                <input type="text" id="email" name="email">
+            </div>
+            <div class="input">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <div class="input">
+                <label for="cpassword">Confirm Password</label>
+                <input type="password" id="cpassword" name="cpassword">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+{{/if}}
+<section class="insert">
+    <h3>Insert Data</h3>
+    <form action="/insert" method="post">
+        <div class="input">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title">
+        </div>
+        <div class="input">
+            <label for="content">Content</label>
+            <input type="text" id="content" name="content">
+        </div>
+        <div class="input">
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author">
+        </div>
+        <button type="submit">INSERT</button>
+    </form>
+</section>
+<section class="get">
+    <h3>Get Data</h3>
+    <a href="/get-data">LOAD DATA</a>
+    <div>
+        {{# each items }}
+            <article class="item">
+                <div>Title: {{ this.title }}</div>
+                <div>Content: {{ this.content }}</div>
+                <div>Author: {{ this.author }}</div>
+                <div>ID: {{ this._id }}</div>
+            </article>
+        {{/each}}
+    </div>
+</section>
+<section class="update">
+    <h3>Update Data</h3>
+    <form action="/update" method="post">
+        <div class="input">
+            <label for="id">ID</label>
+            <input type="text" id="id" name="id">
+        </div>
+        <div class="input">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title">
+        </div>
+        <div class="input">
+            <label for="content">Content</label>
+            <input type="text" id="content" name="content">
+        </div>
+        <div class="input">
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author">
+        </div>
+        <button type="submit">UPDATE</button>
+    </form>
+</section>
+</section>
+<section class="delete">
+    <h3>Delete Data</h3>
+    <form action="/delete" method="post">
+        <div class="input">
+            <label for="id">ID</label>
+            <input type="text" id="id" name="id">
+        </div>
+        <button type="submit">DELETE</button>
+    </form>
+</section> --}}
+<div class="container">
+  <div class="loginBox">
+    <form action="/insert" method="POST">
+          <h1>Login</h1>
+
+      <div class="formInput">
+        <label for='email'> Email Address </label>
+        <input type="text" id="email" name="email" placeholder='abc@def.com'>
+      </div>
+      <div class="formInput">
+        <label for='password'> Password </label>
+        <input type="password" id="password" name="pwd" placeholder='password'>
+      </div>
+      <button>Login</button>
+    </form>
+  </div>
+</div>

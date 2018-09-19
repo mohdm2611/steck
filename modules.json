@@ -5,7 +5,7 @@
         "moduleid": "module12",
         "mappedto": "Sewage",
         "type": "st-ul-01",
-        "status": "active",
+        "status": "Active",
         "length":50,
         "value":25
         },
@@ -14,7 +14,7 @@
             "moduleid": "module121124",
             "mappedto": "Garbagebin",
             "type": "st-ul-01",
-            "status": "inactive",
+            "status": "Inactive",
             "length":50,
             "value": 30
         },
@@ -23,7 +23,7 @@
             "moduleid": "module1212",
             "mappedto": "Home",
             "type": "st-ul-02",
-            "status": "active",
+            "status": "Active",
             "length":50,
             "value": 10
         },
@@ -32,7 +32,7 @@
             "moduleid": "module12",
             "mappedto": "Sewage",
             "type": "st-ul-03",
-            "status": "active",
+            "status": "Active",
             "length":50,
             "value": 21
         },
@@ -41,7 +41,7 @@
             "moduleid": "module12",
             "mappedto": "Sewage",
             "type": "st-ul-01",
-            "status": "active",
+            "status": "Active",
             "length":50,
             "value": 28
         },
@@ -50,7 +50,7 @@
             "moduleid": "module12",
             "mappedto": "Sewage",
             "type": "st-ul-01",
-            "status": "active",
+            "status": "Active",
             "length":50,
             "value": 35
         },
@@ -59,7 +59,7 @@
             "moduleid": "module12",
             "mappedto": "Sewage",
             "type": "st-ul-01",
-            "status": "active",
+            "status": "Active",
             "length":50,
             "value": 50
          }

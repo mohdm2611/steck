@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+        
+    </head>
+    <body>
+        <script type="text/javascript">
+            $.getJSON('http://localhost:3000/modules', function(data) {
+                var app = angular.module('MyApp', ["ngRoute"]);
+                app.controller('MyController', function ($scope) {
+                    $scope.Customers = data;
+                    $scope.IsVisible = true;
+                    $scope.chartData= values;
+                    console.log(values);
+                    //var statusvalue = $('[ng-controller="MyController"]').scope().Customers;
+                    $scope.calculateStyle = function(item){
+                        var color;
+                        // Some logic to define color
+                        if(item == "Active"){
+                        return {
+                            'color': '#52daaa'
+                        }
+                        }
+                        if(item == "Inactive"){
+                            return {
+                                'color': 'red'
+                            }
+                        }
+                    }    
+                });
+                var values = [];
+                for(var i=0;i<data.length;i++){
+                    values[i] = data[i].value;
+                    var ctx = document.getElementById("line-chart");
+                    var chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ["jan","feb","mar","apr","may","jun","jul"],
+                        datasets: [
+                        {
+                            label: "2015",
+                            data: values,
+                            fill: true,
+                            backgroundColor: "#3e95cd",
+                            pointBorderWidth: 10,
+                            pointBorderColor: "#fff",
+                            pointRadius: 3,
+                            pointHoverBorderColor: "#000"
+                        }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero:true
+                                }
+                            }]
+                        }
+                    }
+                    });
+                }
+            });
+                //dsafasfassaf
+        </script>
+        <div class="bodybox">
+            <div class="container-fluid header">
+                <h1>STECK</h1>
+                <h5>Username</h5>
+            </div>
+            <!-- <div class="container sidebar" id="demo">
+                <ul class="list-group">
+                    <li>Overview</li>
+                    <li>Statistics</li>
+                    <li>Devices</li>
+                    <li>Logout</li>
+                </ul>
+            </div> -->
+            <div id="mySidenav" class="sidenav">
+                <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+                <a href="overview.html">Overview</a>
+                <a href="statistics.html">Statistics</a>
+                <a href="index.html ">Devices</a>
+                <a href="index.html">Logout</a>
+            </div>
+            <div class="container main" ng-app="MyApp">
+                <div class="inner" ng-controller="MyController">
+                    <div class="row">
+                        <div class="mod-contents">
+                            <h2>Statistics</h2>
+                            <h6>Take a look at your recent usage</h6>
+                            <div class="col-md-12 graph-container" ng-repeat="m in Customers">
+                                <!-- <div class="graph-text">
+                                    <h6>Status: <span class="mod-status-devices" ng-class="calculateStyle(m.status)" ng-style="calculateStyle(m.status)">{{m.status}}</span></h6>
+                                    <h6>Length: {{m.length}}</h6>
+                                    <h6>Value: {{m.value}}</h6>
+                                    <h6>Installed:</h6>
+                                    <h6>Mapped to:{{m.mappedto}}</h6>
+                                </div> -->
+                                <div class="chart-container"><canvas id="line-chart"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js"></script>
+        <script>
+        </script>
+    </body>
+</html>
