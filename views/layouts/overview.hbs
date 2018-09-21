@@ -1,0 +1,36 @@
+<div class="bodybox">
+    <div class="container-fluid header">
+        <h1>STECK</h1>
+        <h5>{{name}}</h5><br>
+        <a href="logout"><h5>Logout</h5></a>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+        <a href="overview.html">Overview</a>
+        <a href="statistics.html">Statistics</a>
+        <a href="/devices ">Devices</a>
+        <a href="index.html">Logout</a>
+    </div>
+    <div class="container main overview" ng-app="MyApp">
+        <div class="inner" ng-controller="MyController">
+            <div class="row">
+                <div class="col-md-5 mod-contents"  ng-repeat="m in Customers">
+                    <div class="border"></div>
+                    <h2>Module - <span ng-bind="m.id"></span></h2>
+                    <h6 ng-bind="m.moduleid"></h6>
+                    <div class="text-inside">
+                        <h6>Status:&nbsp;<span class="mod-status" ng-class="calculateClass(m.status)" ng-bind="m.status"></span></h6>
+                        <h6>Length:&nbsp;<span ng-bind="m.length"></span>&nbsp;cms</h6>
+                        <h6>Value:&nbsp;<span ng-class="calculateHeight(m.value)" ng-bind="m.value"></span>&nbsp;cms</h6>
+                    </div>
+                    <div class="container-display">
+                        <div class="wave"></div>
+                        <div class="wave1"></div>
+                        <div class="wave2"></div>
+                        <!-- <div class="wave3"></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
