@@ -29,6 +29,7 @@ $.getJSON('http://localhost:3000/modules', function(data) {
             var backgroundcolor;
             var total = $scope.Customers[i].length;
             // Some logic to define color
+            console.log(item);
                 var a= document.getElementsByClassName('wave');
                 var b=document.getElementsByClassName('wave1');
                 var c=document.getElementsByClassName('wave2');

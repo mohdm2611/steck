@@ -4,14 +4,16 @@ var router = express.Router();
 //var objectId = require('mongodb').ObjectID;
 //var assert = require('assert');
 //var url = 'mongodb://localhost:27017/test';
+
 var db = require('monk')('localhost:27017/test');
 var userData =  db.get('users');
-var Response = require('../routes/response');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: "Steck"});
+  res.render('index');
 });
+
+
 router.get('/get-data', function(req, res, next){
   //var resulArray = [];
   var data = userData.find({});
@@ -32,37 +34,43 @@ router.get('/get-data', function(req, res, next){
 });
 router.post('/insert', function(req, res, next){
     var item = {
-      email: req.body.email,
-      pwd: req.body.pwd
+      username: req.body.username,
+      password: req.body.password
     };
-  console.log(item.email, item.pwd);
+  console.log(item.username, item.password);
  
-  userData.findOne({user: item.email, pwd: item.pwd}, function(err, docs){
+  userData.findOne({user: item.username, pwd: item.password}, function(err, docs){
     if(err){
       console.log(err);
     }
     if(docs){
-      if(!req.expressSession.user){
-        Response.unauthorizedRequest('You are not logged in', res);
-      }else{
-        Response.successResponse('Welcome to dashboard!', res, req.expressSession.user);
-        res.render('overview', {name: item.email});
-      }
-     
-     // res.sendfile('.//overview.html');
+        //return res.status(200).send();
+        req.session.user = 'abc';
+        res.render('overview', {user: item.username});
     }
     else{
       console.log("User not found");
+      req.flash('error', 'Invalid Username/Password');
+      res.redirect('/');
     }
   });
   router.get('/devices', function(req, res, next){
     if(!req.session.user){
-      Response.unauthorizedRequest('You are not logged in', res);
-    }else{
-      Response.successResponse('Welcome to dashboard!', res, req.expressSession.user);
-      res.render('devices');
-
+      return res.status(401).send();
     }
+    res.render('devices');
+  });
+  router.get('/statistics', function(req, res, next){
+    if(!req.session.user){
+      return res.status(401).send();
+    }
+    res.render('statistics');
+  });
+  router.get('/overview', function(req, res, next){
+    if(!req.session.user){
+      return res.status(401).send();
+    }
+    res.render('overview');
   });
   // GET /logout
 router.get('/logout', function(req, res, next) {

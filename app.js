@@ -8,14 +8,17 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var hbs = require('express-handlebars');
 var expressValidator = require('express-validator');
-var expressSession = require('express-session');
+var session = require('express-session');
+var flash = require('express-flash');
 
 var app = express();
+
 
 // view engine setup
 app.engine('hbs',hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts'}));
 app.set('views', path.join(__dirname, 'views/layouts'));
 app.set('view engine', 'hbs');
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -23,8 +26,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(expressValidator());  
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(expressSession({secret: 'max', saveUninitialized: false, resave : false}));
-
+app.use(session({
+  secret: 'dasfdsgaersd',
+  resave: false,
+  saveUninitialized: true
+}))
+app.use(flash());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
@@ -42,6 +49,7 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+  res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
 });
 
 module.exports = app;

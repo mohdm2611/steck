@@ -1,8 +1,7 @@
-
 <div class="bodybox">
-    <div class="container-fluid header">
+    <div class="container-fluid overview-header">
         <h1>STECK</h1>
-        <h5>{{name}}</h5>
+        <h5>{{user}}</h5>
     </div>
     <!-- <div class="container sidebar" id="demo">
         <ul class="list-group">
@@ -14,10 +13,10 @@
     </div> -->
     <div id="mySidenav" class="sidenav">
         <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
-        <a href="overview.html">Overview</a>
-        <a href="statistics.html">Statistics</a>
+        <a href="/overview">Overview</a>
+        <a href="/statistics">Statistics</a>
         <a href="/devices">Devices</a>
-        <a href="index.html">Logout</a>
+        <a href="/logout">Logout</a>
     </div>
     <div class="container main" ng-app="MyApp" ng-controller="MyController">
         <div class="inner">
@@ -40,7 +39,7 @@
                             <td ng-bind="m.moduleid"></td>
                             <td ng-bind="m.mappedto"></td>
                             <td ng-bind="m.type"></td>
-                            <td class="mod-status-devices" ng-class="calculateClass(m.status)" ng-style="calculateStyle(m.status)"
+                            <td class="mod-status-devices" ng-class="calculateStyle(m.status)" ng-style="calculateStyle(m.status)"
                              ng-bind="m.status"></td>
                         </tr>
                     </tbody>

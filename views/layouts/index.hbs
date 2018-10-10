@@ -95,19 +95,63 @@
         <button type="submit">DELETE</button>
     </form>
 </section> --}}
-<div class="container">
+{{!-- <div class="container">
   <div class="loginBox">
     <form action="/insert" method="POST">
           <h1>Login</h1>
       <div class="formInput">
         <label for='email'> Email Address </label>
-        <input type="text" id="email" name="email" placeholder='abc@def.com'>
+        <input type="text" id="email" name="username" placeholder='abc@def.com'>
       </div>
       <div class="formInput">
         <label for='password'> Password </label>
-        <input type="password" id="password" name="pwd" placeholder='password'>
+        <input type="password" id="password" name="password" placeholder='password'>
       </div>
       <button>Login</button>
+      
     </form>
   </div>
-</div>
+</div> --}}
+<header class="header">
+        <form method="POST" action="/insert">
+
+        <div class="hero">
+
+            <div class="hero__login">
+                <h1 class="heading__primary u-margin-bottom-med">Login</h1>
+                <div class="u-margin-bottom-med">
+                    <div class="input__label ">User ID</div>
+                    <input type="text" name="username" id="email" class="input__field" placeholder="enter your user ID">
+                </div>
+                <div class="u-margin-bottom-med">
+                        <div class="input__label ">password</div>
+                        <input type="password" name="password" id="password" class="input__field" placeholder="enter your password">
+                </div>
+                <div class="btn__container u-margin-bottom-med">
+                    {{!-- <a href="#forgotpassword" class="btn-text">forgot password?</a> --}}
+                    <button href="#login" class="btn btn-blue">Login <i class="material-icons md-8">arrow_right</i></button>
+                </div>
+                <p class="error-message">{{messages.error}}</p>
+
+                <div class="btn__container">
+                        {{!-- <div class="text__blue">Not a member yet?</div> --}}
+                        {{!-- <a href="test.html" class="btn-text--blue">signup</a> --}}
+                       
+                </div>
+            </div>
+
+
+            <div class="hero__content">
+                <div class="heading__large">Welcome to<br/>
+                    <span class="heading__large heading__bold">Steck</span>
+                </div>
+                
+                <h2 class="heading__secondary">
+                        
+                </h2>
+            </div>
+
+            
+        </div>
+        </form>
+    </header>

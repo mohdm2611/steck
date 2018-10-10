@@ -5,10 +5,8 @@ $.getJSON('http://localhost:3000/modules', function(data) {
         $scope.IsVisible = true;
         var statusvalue = $('[ng-controller="MyController"]').scope().Customers;
         var length = Object.keys(statusvalue).length;
-        console.log(length);
         for (var i=0;i<=length;i++) {
             var statuses = statusvalue[i].status;
-            console.log(statuses);
             i++;
         }
         $scope.calculateStyle = function(item){
@@ -27,9 +25,12 @@ $.getJSON('http://localhost:3000/modules', function(data) {
         }
     });
     });
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-    }
     function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
+        var width = document.getElementById("mySidenav").offsetWidth;
+        if(width!=0){
+            $(".sidenav").hide();
+        }
+        if(width===0){
+            $(".sidenav").show();
+        }
     }
