@@ -10,7 +10,7 @@ var userData =  db.get('users');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.render('index',{title:"Steck"});
 });
 
 
@@ -33,6 +33,7 @@ router.get('/get-data', function(req, res, next){
   })*/
 });
 router.post('/insert', function(req, res, next){
+
     var item = {
       username: req.body.username,
       password: req.body.password
@@ -46,14 +47,16 @@ router.post('/insert', function(req, res, next){
     if(docs){
         //return res.status(200).send();
         req.session.user = 'abc';
-        res.render('overview', {user: item.username});
+        res.status(200).redirect('overview');
+       //res.redirect('overview', {user: item.username});
     }
     else{
       console.log("User not found");
       req.flash('error', 'Invalid Username/Password');
       res.redirect('/');
     }
-  });
+  })
+;
   router.get('/devices', function(req, res, next){
     if(!req.session.user){
       return res.status(401).send();
