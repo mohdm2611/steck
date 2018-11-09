@@ -3,9 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
 
-var indexRouter = require('./routes/index');
-var modulesRouter = require('./routes/modules');
+var indexRouter = require('./api/routes/index');
+var modulesRouter = require('./api/routes/modules');
 var hbs = require('express-handlebars');
 var expressValidator = require('express-validator');
 var session = require('express-session');
@@ -13,8 +14,10 @@ var flash = require('express-flash');
 
 var app = express();
 
-
+mongoose.connect('mongodb://admin:'+ 
+  process.env.MONGO_ATLAS_PW + '@steck-shard-00-00-j16h3.mongodb.net:27017,steck-shard-00-01-j16h3.mongodb.net:27017,steck-shard-00-02-j16h3.mongodb.net:27017/test?ssl=true&replicaSet=Steck-shard-0&authSource=admin&retryWrites=true');
 // view engine setup
+//mongoose.Promise = global.Promise;
 app.engine('hbs',hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts'}));
 app.set('views', path.join(__dirname, 'views/layouts'));
 app.set('view engine', 'hbs');
@@ -32,6 +35,16 @@ app.use(session({
   saveUninitialized: true
 }))
 app.use(flash());
+
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  if(req.method === 'OPTIONS') {
+    res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, PATCH, DELETE,');
+    return res.status(200).json({});
+  }
+  next();
+});
 app.use('/', indexRouter);
 app.use('/modules', modulesRouter);
 
