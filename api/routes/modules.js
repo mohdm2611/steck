@@ -6,13 +6,14 @@ const Moduledata = require('../models/module');
 
 router.get('/', (req, res, next) => {   
     Moduledata.find()
-    .select('mappedTo type status')
+    .select('moduleID mappedTo type status')
     .exec()
     .then(docs => {
         const response = {
             count: docs.length,
             modules: docs.map(doc => {
                 return {
+                    moduleID: doc.moduleID,
                     mappedTo: doc.mappedTo,
                     type: doc.type,
                     status: doc.status,
@@ -35,6 +36,7 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
     const moduledata = new Moduledata({
         _id: new mongoose.Types.ObjectId(),
+        moduleID: req.body.moduleID,
         mappedTo: req.body.mappedTo,
         type: req.body.type,
         status: req.body.status
@@ -45,6 +47,7 @@ router.post('/', (req, res, next) => {
         res.status(201).json({
             message : "Created module",
             modules : {
+                moduleID: result.moduleID,
                 mappedTo: result.mappedTo,
                 type: result.type,
                 status: result.status,

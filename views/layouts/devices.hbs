@@ -34,10 +34,10 @@
                             <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody ng-repeat="m in Customers">
+                    <tbody ng-repeat="m in modules">
                         <tr>
-                            <td ng-bind="m.moduleid"></td>
-                            <td ng-bind="m.mappedto"></td>
+                            <td ng-bind="m.moduleID"></td>
+                            <td ng-bind="m.mappedTo"></td>
                             <td ng-bind="m.type"></td>
                             <td class="mod-status-devices" ng-class="calculateStyle(m.status)" ng-style="calculateStyle(m.status)"
                              ng-bind="m.status"></td>

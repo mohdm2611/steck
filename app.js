@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 
 var indexRouter = require('./api/routes/index');
 var modulesRouter = require('./api/routes/modules');
+var usersRouter = require('./api/routes/users');
 var hbs = require('express-handlebars');
 var expressValidator = require('express-validator');
 var session = require('express-session');
@@ -15,9 +16,10 @@ var flash = require('express-flash');
 var app = express();
 
 mongoose.connect('mongodb://admin:'+ 
-  process.env.MONGO_ATLAS_PW + '@steck-shard-00-00-j16h3.mongodb.net:27017,steck-shard-00-01-j16h3.mongodb.net:27017,steck-shard-00-02-j16h3.mongodb.net:27017/test?ssl=true&replicaSet=Steck-shard-0&authSource=admin&retryWrites=true');
+  process.env.MONGO_ATLAS_PW + '@steck-shard-00-00-j16h3.mongodb.net:27017,steck-shard-00-01-j16h3.mongodb.net:27017,steck-shard-00-02-j16h3.mongodb.net:27017/test?ssl=true&replicaSet=Steck-shard-0&authSource=admin&retryWrites=true'
+  ,{ useNewUrlParser: true });
 // view engine setup
-//mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 app.engine('hbs',hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts'}));
 app.set('views', path.join(__dirname, 'views/layouts'));
 app.set('view engine', 'hbs');
@@ -47,6 +49,7 @@ app.use(function(req, res, next) {
 });
 app.use('/', indexRouter);
 app.use('/modules', modulesRouter);
+app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

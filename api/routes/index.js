@@ -58,9 +58,9 @@ router.post('/insert', function(req, res, next){
   })
 ;
   router.get('/devices', function(req, res, next){
-    if(!req.session.user){
-      return res.status(401).send();
-    }
+    //if(!req.session.user){
+    //  return res.status(401).send();
+    //}
     res.render('devices');
   });
   router.get('/statistics', function(req, res, next){

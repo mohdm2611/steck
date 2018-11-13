@@ -1,4 +1,4 @@
-$.getJSON('http://localhost:3000/modules', function(data) {
+$.getJSON('http://localhost:8000/modules', function(data) {
     var app = angular.module('MyApp', ["ngRoute"]);
     app.controller('MyController', function ($scope) {
         $scope.Customers = data;
