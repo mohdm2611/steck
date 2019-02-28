@@ -12,7 +12,6 @@ $.getJSON('http://localhost:8000/modules', function(data) {
         }
         $scope.calculateStyle = function(item){
             var color;
-            // Some logic to define color
             if(item == "active"){
             return {
                 'color': '#52daaa'
@@ -28,7 +27,6 @@ $.getJSON('http://localhost:8000/modules', function(data) {
         $scope.calculateHeight = function(item){
             var backgroundcolor;
             var total = $scope.Customers[i].length;
-            // Some logic to define color
             console.log(item);
                 var a= document.getElementsByClassName('wave');
                 var b=document.getElementsByClassName('wave1');
@@ -40,4 +38,6 @@ $.getJSON('http://localhost:8000/modules', function(data) {
         }      
     });
     });
-    //dsafasfassaf
+
+
+

@@ -45,18 +45,19 @@ router.post('/insert', function(req, res, next){
       console.log(err);
     }
     if(docs){
-        //return res.status(200).send();
+        return res.status(200).send();
         req.session.user = 'abc';
         res.status(200).redirect('overview');
-       //res.redirect('overview', {user: item.username});
+       res.redirect('overview', {user: item.username});
     }
     else{
       console.log("User not found");
       req.flash('error', 'Invalid Username/Password');
       res.redirect('/');
     }
-  })
-;
+  });
+
+  
   router.get('/devices', function(req, res, next){
     //if(!req.session.user){
     //  return res.status(401).send();
@@ -130,4 +131,5 @@ router.post('/delete', function(req, res, next) {
   });*/
   res.redirect('/');
 });
+
 module.exports = router;

@@ -75,6 +75,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.post("/login", (req, res, next) => {
+  console.log(req.body.email, req.body.password);
   User.find({ email: req.body.email })
     .exec()
     .then(user => {

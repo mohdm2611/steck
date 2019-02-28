@@ -21,7 +21,7 @@ mongoose.connect('mongodb://admin:'+
 // view engine setup
 mongoose.Promise = global.Promise;
 app.engine('hbs',hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts'}));
-app.set('views', path.join(__dirname, 'views/layouts'));
+app.set('views', path.join(__dirname, '/views/layouts'));
 app.set('view engine', 'hbs');
 
 
